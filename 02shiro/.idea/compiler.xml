@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="shiro-10springboot" />
+        <module name="shiro-06-authentication-realm" />
+        <module name="shiro-01" />
+        <module name="shiro-09web" />
+        <module name="shiro-03" />
+        <module name="shiro-04-ciphertext-realm" />
+        <module name="shiro-02" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="02shiro" target="11" />
+      <module name="shiro-01" target="11" />
+      <module name="shiro-02" target="11" />
+      <module name="shiro-03" target="11" />
+      <module name="shiro-04-ciphertext-realm" target="11" />
+      <module name="shiro-06-authentication-realm" target="11" />
+      <module name="shiro-08web" target="11" />
+      <module name="shiro-09web" target="1.7" />
+      <module name="shiro-10springboot" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="02shiro" options="-parameters" />
+      <module name="shiro-10springboot" options="-parameters" />
+    </option>
+  </component>
+</project>

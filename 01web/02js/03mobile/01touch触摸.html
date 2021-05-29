@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<style>
+
+    div {
+        height: 200px;
+        width: 200px;
+        background-color: pink;
+    }
+</style>
+<body>
+
+
+<div></div>
+
+<script>
+    var div = document.querySelector('div');
+    div.addEventListener('touchstart',function (e) {
+
+        console.log('触摸事件')
+        console.log(e.touches)  // 所有屏幕的手指列表
+        console.log(e.targetTouches)  // 触摸当前dom元素的列表
+        console.log(e.changedTouches)  // 手指状态发生改变
+        console.log(e)
+    })
+    div.addEventListener('touchmove',function () {
+        console.log('滑动触发')
+    })
+    div.addEventListener('touchend',function () {
+        console.log('离开触发')
+    })
+
+
+</script>
+
+
+
+</body>
+</html>

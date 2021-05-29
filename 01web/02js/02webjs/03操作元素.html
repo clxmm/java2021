@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<button>time</button>
+
+<div>事件</div>
+
+<p>init</p>
+
+<script>
+
+
+    var btn = document.querySelector('button');
+    var divT = document.querySelector('div')
+
+    btn.onclick = function () {
+        divT.innerText = new Date();
+    }
+
+    // 直接加载
+    var myP = document.querySelector('p')
+    myP.innerText = 'init text';
+    myP.innerHTML = '<strong>init text</strong>'
+
+</script>
+</body>
+</html>

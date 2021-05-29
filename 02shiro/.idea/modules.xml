@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/shiro-01/shiro-01.iml" filepath="$PROJECT_DIR$/shiro-01/shiro-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-02/shiro-02.iml" filepath="$PROJECT_DIR$/shiro-02/shiro-02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-03/shiro-03.iml" filepath="$PROJECT_DIR$/shiro-03/shiro-03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-04-ciphertext-realm/shiro-04-ciphertext-realm.iml" filepath="$PROJECT_DIR$/shiro-04-ciphertext-realm/shiro-04-ciphertext-realm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-06-authentication-realm/shiro-06-authentication-realm.iml" filepath="$PROJECT_DIR$/shiro-06-authentication-realm/shiro-06-authentication-realm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-09web/shiro-09web.iml" filepath="$PROJECT_DIR$/shiro-09web/shiro-09web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-10springboot/shiro-10springboot.iml" filepath="$PROJECT_DIR$/shiro-10springboot/shiro-10springboot.iml" />
+    </modules>
+  </component>
+</project>
