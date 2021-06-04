@@ -12,7 +12,6 @@ import org.apache.shiro.util.ByteSource;
 import org.clxmm.service.shiro.entity.User;
 import org.clxmm.service.shiro.service.ResourceService;
 import org.clxmm.service.shiro.service.UserService;
-import org.clxmm.service.shiro.service.UserService;
 import org.clxmm.shiro.constant.CacheConstant;
 import org.clxmm.shiro.constant.SuperConstant;
 import org.clxmm.shiro.core.ShiroDbRealm;

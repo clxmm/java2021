@@ -1,8 +1,6 @@
 package org.clxmm.shiro.config;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.session.mgt.AbstractSessionManager;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -11,19 +9,17 @@ import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.clxmm.shiro.core.ShiroDbRealm;
+import org.clxmm.shiro.core.impl.JwtTokenManager;
 import org.clxmm.shiro.core.impl.RedisSessionDao;
 import org.clxmm.shiro.core.impl.ShiroDbRealmImpl;
-import org.clxmm.shiro.filter.KickedOutAuthorizationFilter;
-import org.clxmm.shiro.filter.RolesOrAuthorizationFilter;
+import org.clxmm.shiro.core.impl.ShiroSessionManager;
+import org.clxmm.shiro.filter.*;
 import org.clxmm.shiro.properties.PropertiesUtil;
-import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
@@ -50,6 +46,9 @@ public class ShiroConfig {
 
     @Resource(name = "redissonClientForShiro")
     RedissonClient redissonClient;
+
+    @Autowired
+    JwtTokenManager jwtTokenManager;
 
 
     //创建cookie对象
@@ -92,10 +91,11 @@ public class ShiroConfig {
     }
 
 
+    // 替换 自定义的ShiroSessionManager 作用是加入对jwtToken的支持
     //会话管理器
     @Bean("sessionManager")
-    public DefaultWebSessionManager sessionManager() {
-        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+    public ShiroSessionManager sessionManager() {
+        ShiroSessionManager sessionManager = new ShiroSessionManager();
         // 指定自定义的 redis 的
         sessionManager.setSessionDAO(redisSessionDao());
         //关闭会话更新
@@ -164,6 +164,11 @@ public class ShiroConfig {
         Map<String, Filter> map = new HashMap<>();
         map.put("roles-or", new RolesOrAuthorizationFilter());
         map.put("kickedOut", new KickedOutAuthorizationFilter(redissonClient, redisSessionDao(), sessionManager()));
+
+        //
+        map.put("jwt-authc", new JwtAuthcFilter(jwtTokenManager));
+        map.put("jwt-perms", new JwtPermsFilter());
+        map.put("jwt-roles", new JwtRolesFilter());
         return map;
     }
 
