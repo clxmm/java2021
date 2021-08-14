@@ -32,7 +32,9 @@
                             (2). for(){}
 -->
 <div id="root">
-    <h1>hello {{name}}</h1>
+    <h1>hello {{name.toUpperCase()}}</h1>
+    <h1> {{Date.now()}}</h1>
+    <h1>{{address}}</h1>
 </div>
 
 <script type="text/javascript">
@@ -42,7 +44,8 @@
     const x = new Vue({
         el: '#root',//el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串。
         data: {
-            name: 'world'
+            name: 'world',
+            address: '地址'
         }
 
     })

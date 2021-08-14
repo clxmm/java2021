@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>学校名称：{{name}}</h2>
+    <h2>学校地址：{{address}}</h2>
+</div>
+
+
+<script type="text/javascript">
+    new Vue({
+        el: '#root',
+        data: {
+            name:'clxmm',
+            address:'北京',
+            student:{
+                name:'tom',
+                age:{
+                    rAge:40,
+                    sAge:29,
+                },
+                friends:[
+                    {name:'jerry',age:35}
+                ]
+            }
+        },
+        methods: {
+            updateMei() {
+                // this.persons[0].name = '马老师' //奏效
+                // this.persons[0].age = 50 //奏效
+                // this.persons[0].sex = '男' //奏效
+                // this.persons[0] = {id:'001',name:'马老师',age:50,sex:'男'} //不奏效
+                this.persons.splice(0, 1, {id: '001', name: '马老师', age: 50, sex: '男'})
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>

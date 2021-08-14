@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>hello {{name}}</h2>
+
+    <ul>
+        <!--        <li v-for="p in persons" :key="p.id">-->
+        <li v-for="(p,index) in persons" :key="index">
+            name: {{p.name}} ; age: {{p.age}}
+        </li>
+    </ul>
+
+    <!-- 遍历对象 -->
+    <h2>汽车信息（遍历对象）</h2>
+    <ul>
+        <li v-for="(value,k) of car" :key="k">
+            {{k}}-{{value}}
+        </li>
+    </ul>
+
+    <!-- 遍历字符串 -->
+    <h2>测试遍历字符串（用得少）</h2>
+    <ul>
+        <li v-for="(char,index) of str" :key="index">
+            {{char}}-{{index}}
+        </li>
+    </ul>
+
+    <!-- 遍历指定次数 -->
+    <h2>测试遍历指定次数（用得少）</h2>
+    <ul>
+        <li v-for="(number,index) of 5" :key="index">
+            {{index}}-{{number}}
+        </li>
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    new Vue({
+        el: '#root',
+        data: {
+            name: 'clxmm',
+            persons: [
+                {id: 1, name: 'clxmm', age: 18},
+                {id: 2, name: 'clxmm2', age: 18},
+                {id: 3, name: 'clxmm3', age: 18}
+            ],
+            car:{
+                name:'奥迪A8',
+                price:'70万',
+                color:'黑色'
+            },
+            str:'hello'
+        },
+        methods: {}
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div>{{name}}</div>
+    <div>{{address}}</div>
+    <div>测试1 {{1+1}}</div>
+
+    <div>测试2 {{$options}}</div>
+    <div>测试4 {{$emit}}</div>
+    <div>测试3 {{_c}}</div>
+</div>
+
+
+<script type="text/javascript">
+    const  vm = new Vue({
+        el: '#root',
+        data: {
+            name:'clxmm',
+            address: '山寨'
+        }
+    })
+
+    console.log(vm)
+</script>
+
+</body>
+</html>

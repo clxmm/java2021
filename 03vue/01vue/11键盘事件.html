@@ -1,0 +1,36 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>hello {{name}}</h2>
+    <input type="text" @keyup.enter="showInfo">
+</div>
+
+
+<script type="text/javascript">
+
+    // 回车
+    Vue.config.keyCodes.huiche = 13 //定义了一个别名按键
+
+    new Vue({
+        el: '#root',
+        data: {
+            name: 'clxmm'
+        },
+        methods: {
+            showInfo(e) {
+                // if (e.keyCode !== 13)  return
+                console.log(e.target.value)
+
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
