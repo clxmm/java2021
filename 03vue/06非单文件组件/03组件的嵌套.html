@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+
+    <!--    <app></app>-->
+    <hr>
+</div>
+<script type="text/javascript">
+
+    const student = Vue.extend({
+        // 自定义组件名，在开发者工具中显示的名字
+        name: 'myname',
+        template: `
+          <div class="demo">
+          <h2>学生名称：{{ name }}</h2>
+          <h2>age：{{ age }}</h2>
+          <button @click="showName">点我学生姓名</button>
+          </div>
+        `,
+        // el:'#root', //组件定义时，一定不要写el配置项，因为最终所有的组件都要被一个vm管理，由vm决定服务于哪个容器。
+        data() {
+            return {
+                name: 'clxmm',
+                age: 18
+            }
+        },
+        methods: {
+            showName() {
+                alert(this.name)
+            }
+        },
+    })
+
+    //第一步：创建school组件
+    const school = Vue.extend({
+        // 自定义组件名，在开发者工具中显示的名字
+        // name: 'school',
+        template: `
+          <div class="demo">
+          <h2>学校名称：{{ schoolName }}</h2>
+          <h2>学校地址：{{ address }}</h2>
+          <button @click="showName">点我提示学校名</button>
+
+          <student></student>
+          </div>
+        `,
+        // el:'#root', //组件定义时，一定不要写el配置项，因为最终所有的组件都要被一个vm管理，由vm决定服务于哪个容器。
+        data() {
+            return {
+                schoolName: 'clxmm',
+                address: '北京昌平'
+            }
+        },
+        methods: {
+            showName() {
+                alert(this.schoolName)
+            }
+        },
+        components: {
+            student
+        }
+    })
+
+
+    //定义hello组件
+    const hello = Vue.extend({
+        template: `<h1>{{ msg }}</h1>`,
+        data() {
+            return {
+                msg: 'hello 组件！'
+            }
+        }
+    })
+
+
+    //定义app组件
+    const app = Vue.extend({
+        template: `
+          <div>
+          <hello></hello>
+          <school></school>
+          </div>
+        `,
+        components: {
+            school,
+            hello
+        }
+    })
+
+
+    new Vue({
+        el: '#root',
+        template: '<app></app>',
+        data: {
+            name: 'clxmm'
+        },
+        //第二步：注册组件（局部注册）
+        components: {
+            // 如果传入的school只是一个对象，vue会自动调用extend
+            'my-school': school,
+            // student
+            app
+        },
+        methods: {}
+    })
+
+</script>
+
+</body>
+</html>
