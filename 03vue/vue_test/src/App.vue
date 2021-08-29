@@ -1,40 +1,34 @@
 <template>
   <div>
-    <banner/>
-    <div class="row">
-      <div class="col-xs-2 col-xs-offset-2">
-        <div class="list-group">
+    <div>按钮</div>
+    <input/>
 
 
-          <router-link class="list-group-item" active-class="active" to="/about">About</router-link>
-          <router-link class="list-group-item" active-class="active" to="/home">Home</router-link>
+    <hr>
+    <el-button type="primary">主要按钮</el-button>
 
 
-        </div>
-      </div>
-      <div class="col-xs-6">
-        <div class="panel">
-          <div class="panel-body">
-
-            <router-view/>
-
-          </div>
-        </div>
-      </div>
+    <hr>
+    <div class="block">
+      <span class="demonstration">默认</span>
+      <el-date-picker
+          type="date"
+          placeholder="选择日期">
+      </el-date-picker>
     </div>
-  </div>
 
+
+
+  </div>
 
 </template>
 
 <script>
 
-import Banner from "@/components/Banner";
 
 export default {
   name: 'app',
 
-  components: {Banner},
   methods: {},
   mounted() {
 

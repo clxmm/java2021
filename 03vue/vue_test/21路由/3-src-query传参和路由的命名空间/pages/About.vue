@@ -1,13 +1,10 @@
 <template>
-  <h2>home</h2>
+  <h2> about </h2>
 </template>
 
 <script>
 export default {
-  name: "Home",
-  mounted() {
-    console.log(this)
-  }
+  name: "About"
 }
 </script>
 
